@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float maxDuration = 10.0f;
+    public float maxDuration = 50.0f;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SelfDestruct());
+        Physics.IgnoreLayerCollision(0, 6);
     }
 
     // Update is called once per frame

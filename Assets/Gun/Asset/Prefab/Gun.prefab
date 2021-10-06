@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7409705151962520133}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun_Grab_Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704264940735391992}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.016, y: 0, z: 0}
+  m_LocalRotation: {x: -0.31776756, y: 0.66223514, z: 0.24689776, w: 0.6320679}
+  m_LocalPosition: {x: -0.17690557, y: 0.37502488, z: -0.030018564}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3832703582600944448}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!1 &3832703582346906254
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 3832703582346906255}
   - component: {fileID: 3832703582346906253}
   - component: {fileID: 3832703582346906252}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 3832703582438931028}
   - component: {fileID: 3832703582438931114}
   - component: {fileID: 3832703582438931029}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 3832703582474617315}
   - component: {fileID: 3832703582474617313}
   - component: {fileID: 3832703582474617312}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,10 +278,11 @@ GameObject:
   - component: {fileID: 4790928053845807364}
   - component: {fileID: 1587654279038733370}
   - component: {fileID: 4248135050545119562}
-  - component: {fileID: 7891851699906630715}
   - component: {fileID: 8604069143402393861}
   - component: {fileID: 7555999520308202261}
-  m_Layer: 0
+  - component: {fileID: 2894263256118393632}
+  - component: {fileID: 34321032717427154}
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,10 +340,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d25b3cb560c7841ba36837fbd2c868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabPinch:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
   bulletPrefab: {fileID: 4525022835638008420, guid: d1648e19eb5c6c244a24de7d1eaa86a4, type: 3}
   switchOnSound: {fileID: 4790928053845807364}
   switchOffSound: {fileID: 1587654279038733370}
-  firepower: 100
+  firepower: 1
 --- !u!82 &6253011058046033154
 AudioSource:
   m_ObjectHideFlags: 0
@@ -647,19 +651,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7891851699906630715
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3832703582600972128}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.65, z: 0.15}
-  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!114 &8604069143402393861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,7 +670,7 @@ MonoBehaviour:
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
-  useHandObjectAttachmentPoint: 1
+  useHandObjectAttachmentPoint: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
     serializedVersion: 2
@@ -708,7 +699,7 @@ MonoBehaviour:
   snapAttachEaseInTime: 0.15
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
-  handFollowTransform: 1
+  handFollowTransform: 0
   highlightOnHover: 1
   hideHighlight: []
   hoverPriority: 0
@@ -724,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachmentFlags: 44
+  attachmentFlags: 21
   attachmentOffset: {fileID: 7409705151962520133}
   catchingSpeedThreshold: -1
   releaseVelocityStyle: 1
@@ -766,6 +757,34 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
+--- !u!136 &2894263256118393632
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3832703582600972128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 1.2
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!136 &34321032717427154
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3832703582600972128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.4
+  m_Direction: 1
+  m_Center: {x: -0.45, y: -0.1, z: 0}
 --- !u!1 &3832703582600972130
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,7 +796,7 @@ GameObject:
   - component: {fileID: 3832703582600944450}
   - component: {fileID: 3832703582604335968}
   - component: {fileID: 3832703582603237792}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +877,7 @@ GameObject:
   - component: {fileID: 3832703582600944452}
   - component: {fileID: 3832703582604335970}
   - component: {fileID: 3832703582603237794}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun_Bullet_Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,7 +959,7 @@ GameObject:
   - component: {fileID: 3832703582600944454}
   - component: {fileID: 3832703582604335972}
   - component: {fileID: 3832703582603237796}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun_Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1022,7 +1041,7 @@ GameObject:
   - component: {fileID: 3832703582600944456}
   - component: {fileID: 3832703582604335974}
   - component: {fileID: 3832703582603237798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,7 +1123,7 @@ GameObject:
   - component: {fileID: 3832703582705633605}
   - component: {fileID: 3832703582705633604}
   - component: {fileID: 3832703582705633607}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1205,7 +1224,7 @@ GameObject:
   - component: {fileID: 8836231983216188755}
   - component: {fileID: 5883887065271957873}
   - component: {fileID: 7350826384943241584}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun_Pointer_Module
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1286,7 +1305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1716095980007839831}
   - component: {fileID: 9165082546649848304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1427,7 +1446,7 @@ GameObject:
   - component: {fileID: 2843017682764584919}
   - component: {fileID: 2147256019697877813}
   - component: {fileID: 3494959893794303070}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Laser_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1569,7 +1588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4576638983154540920}
   - component: {fileID: 7570274830296511202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun_Bullet_Hole_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1609,7 +1628,7 @@ GameObject:
   - component: {fileID: 1635279013147800145}
   - component: {fileID: 3109261479251562700}
   - component: {fileID: 9082000707568042532}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun_Pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

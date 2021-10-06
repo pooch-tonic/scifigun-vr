@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.scifigun_vr_remake.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\choco\\Documents\\Projects\\My projects\\SciFiGun_VR_remake\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "SciFiGun_VR_remake [Testing]"
+        }
+      }
+    }
+  ]
+}
